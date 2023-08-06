@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="css/flightsearch.css">
+    <title>Airline Reservation</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Flight Search Results</h2>
+
+       
+        <div class="flight-info">
+          <label>From:</label>
+          <p id="from"></p>
+      </div>
+      <div class="flight-info">
+        <label>To:</label>
+        <p id="to"></p>
+    </div>
+
+    <div class="flight-info">
+        <label>Departure Date:</label>
+        <p id="departure"></p>
+    </div>
+
+    <div class="flight-info">
+        <label>Return Date:</label>
+        <p id="return"></p>
+    </div>
+
+    <div class="flight-info">
+        <label>Passengers:</label>
+        <p id="passengers"></p>
+    </div>
+</div>
+
+<script>
+  function getQueryParams() {
+      var queryParams = {};
+      var queryString = window.location.search.substring(1);
+      var vars = queryString.split("&");
+      for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split("=");
+          var key = decodeURIComponent(pair[0]);
+          var value = decodeURIComponent(pair[1]);
+          queryParams[key] = value;
+      }
+      return queryParams;
+  }
+  
+  var params = getQueryParams();
+  
+  document.getElementById("from").textContent = params.from;
+  document.getElementById("to").textContent = params.to;
+  document.getElementById("departure").textContent = params.departure;
+  document.getElementById("return").textContent = params.return;
+  document.getElementById("passengers").textContent = params.passengers;
+  </script>
+
+  <script>
+  function storeFormData() {
+      var formData = {
+          seat: document.getElementById("seat").value,
+          legroom: document.getElementById("legroom").checked,
+          wifi: document.getElementById("wifi").checked,
+          meal: document.querySelector('input[name="meal"]:checked').value,
+          beverage: document.getElementById("beverage").value,
+          lounge: document.getElementById("lounge").checked,
+          boarding: document.getElementById("boarding").checked,
+          baggage: document.getElementById("baggage").value
+      };
+  
+      localStorage.setItem("formData", JSON.stringify(formData));
+  }
+  
+  function navigateToNextPage() {
+  var formData = JSON.parse(localStorage.getItem("formData"));
+  if (formData !== null) {
+    sessionStorage.setItem("formData", JSON.stringify(formData));
+    window.location.href = "ticket.html";
+  } else {
+    alert("Form data is not available. Please fill out the form.");
+  }
+}
+
+</script>
+
+
+
+
+
+
+
+<form>
+    <label for="seat">Seat Selection:</label>
+    <select id="seat" name="seat">
+        <option value="economy">Economy</option>
+        <option value="business">Business</option>
+        <option value="first-class">First Class</option>
+    </select><br><br>
+
+    <label for="legroom">Extra Legroom:</label>
+    <input type="checkbox" id="legroom" name="legroom"><br><br>
+
+    <label for="wifi">WiFi Access:</label>
+    <input type="checkbox" id="wifi" name="wifi"><br><br>
+
+    <label for="meal">Meal Selection:</label>
+    <input type="radio" id="meal-vegetarian" name="meal" value="vegetarian">
+    <label for="meal-vegetarian">Vegetarian</label>
+    <input type="radio" id="meal-non-vegetarian" name="meal" value="non-vegetarian">
+    <label for="meal-non-vegetarian">Non-Vegetarian</label><br><br>
+
+    <label for="beverage">Beverage Selection:</label>
+    <select id="beverage" name="beverage">
+        <option value="water">Water</option>
+        <option value="juice">Juice</option>
+        <option value="soft-drink">Soft Drink</option>
+        <option value="alcohol">Alcohol</option>
+    </select><br><br>
+
+    <label for="lounge">Lounge Access:</label>
+    <input type="checkbox" id="lounge" name="lounge"><br><br>
+
+    <label for="boarding">Priority Boarding:</label>
+    <input type="checkbox" id="boarding" name="boarding"><br><br>
+
+    <label for="baggage">Baggage Options:</label>
+    <select id="baggage" name="baggage">
+        <option value="carry-on">Carry-on Only</option>
+        <option value="checked">Checked Baggage</option>
+        <option value="none">None</option>
+    </select><br><br>
+
+    <input type="button" value="Submit" onclick="storeFormData(); navigateToNextPage();">
+</form>
+</body>
+</html>

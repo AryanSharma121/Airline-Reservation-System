@@ -1,0 +1,144 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #39f179, #00bfff);
+    background-attachment: fixed;
+  }
+  
+  .header {
+    color: #ebebeb;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+  }
+  
+  .left-col {
+    flex: 1;
+    padding: 20px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+  }
+  
+  .left-col h2 {
+    font-size: 24px;
+    color: #0080ff;
+    margin-bottom: 20px;
+  }
+  
+  .left-col label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .left-col input,
+  .left-col textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background-color: #ebebeb;
+  }
+  
+  .left-col textarea {
+    height: 150px;
+    resize: none;
+  }
+  
+  .left-col button[type="submit"] {
+    background-color: #0080ff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .left-col button[type="submit"]:hover {
+    background-color: #0066cc;
+  }
+  
+  .right-col {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .info-card {
+    background-color: #ebebeb;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .info-card h3 {
+    font-size: 20px;
+    color: #0080ff;
+    margin-bottom: 10px;
+  }
+  
+  .info-card p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .social-icon {
+    display: inline-block;
+    background-color: #0080ff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .social-icon:hover {
+    background-color: #0066cc;
+  }
+  
+  .social-icon i {
+    font-size: 20px;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .social-icons a:hover {
+    opacity: 0.7;
+  }
+  
+  .social-icons a img {
+    display: inline-block;
+    height: 30px;
+  }
+  

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/ticket.css">
+  <title>Airline Ticket</title>
+</head>
+<body>
+  <div class="ticket">
+    <h1>Airline Ticket</h1>
+    
+    <div class="ticket-info">
+      <h2>Flight Details</h2>
+      <p>Departure: <span id="departure"></span></p>
+      <p>Destination: <span id="destination"></span></p>
+      <p>Gate No: <span id="gate"></span></p>
+      <p>Flight Number: <span id="flight-number"></span></p>
+      <p>Seat: <span id="seat"></span></p>
+    </div>
+    
+    <div class="ticket-options">
+      <h2>Additional Options</h2>
+      <p>Extra Legroom: <span id="legroom"></span> - <span id="legroom-price"></span> INR</p>
+      <p>WiFi Access: <span id="wifi"></span> - <span id="wifi-price"></span> INR</p>
+      <p>Meal Selection: <span id="meal"></span> - <span id="meal-price"></span> INR</p>
+      <p>Beverage Selection: <span id="beverage"></span> - <span id="beverage-price"></span> INR</p>
+      <p>Lounge Access: <span id="lounge"></span> - <span id="lounge-price"></span> INR</p>
+      <p>Priority Boarding: <span id="boarding"></span> - <span id="boarding-price"></span> INR</p>
+      <p>Baggage Options: <span id="baggage"></span> - <span id="baggage-price"></span> INR</p>
+      <hr>
+      <p>Total: <span id="total-price"></span> INR</p>
+    </div>
+    
+    <div class="happy-journey">
+      <p>Gate No: <span id="gate-surprise"></span></p>
+      <p>Wishing you a Happy Journey!</p>
+      <p>Flight Number: A@I07894</p>
+    </div>
+  </div>
+  
+  <script>
+    function populateTicket() {
+      var formData = JSON.parse(sessionStorage.getItem("formData"));
+      if (formData !== null) {
+        document.getElementById("departure").textContent = formData.from;
+        document.getElementById("destination").textContent = formData.to;
+        document.getElementById("seat").textContent = formData.seat;
+        document.getElementById("legroom").textContent = formData.legroom ? "Yes" : "No";
+        document.getElementById("wifi").textContent = formData.wifi ? "Yes" : "No";
+        document.getElementById("meal").textContent = formData.meal;
+        document.getElementById("beverage").textContent = formData.beverage;
+        document.getElementById("lounge").textContent = formData.lounge ? "Yes" : "No";
+        document.getElementById("boarding").textContent = formData.boarding ? "Yes" : "No";
+        document.getElementById("baggage").textContent = formData.baggage;
+
+        var priceData = {
+          "legroom": 500,
+          "wifi": 200,
+          "meal": {
+            "vegetarian": 300,
+            "non-vegetarian": 350
+          },
+          "beverage": {
+            "water": 100,
+            "juice": 150,
+            "soft-drink": 120,
+            "alcohol": 500
+          },
+          "lounge": 400,
+          "boarding": 250,
+          "baggage": {
+            "carry-on": 0,
+            "checked": 200,
+            "both": 300
+          }
+        };
+
+        var legroomPrice = formData.legroom ? priceData.legroom : 0;
+        var wifiPrice = formData.wifi ? priceData.wifi : 0;
+        var mealPrice = formData.meal ? priceData.meal[formData.meal] : 0;
+        var beveragePrice = formData.beverage ? priceData.beverage[formData.beverage] : 0;
+        var loungePrice = formData.lounge ? priceData.lounge : 0;
+        var boardingPrice = formData.boarding ? priceData.boarding : 0;
+        var baggagePrice = formData.baggage ? priceData.baggage[formData.baggage] : 0;
+
+        document.getElementById("legroom-price").textContent = legroomPrice;
+        document.getElementById("wifi-price").textContent = wifiPrice;
+        document.getElementById("meal-price").textContent = mealPrice;
+        document.getElementById("beverage-price").textContent = beveragePrice;
+        document.getElementById("lounge-price").textContent = loungePrice;
+        document.getElementById("boarding-price").textContent = boardingPrice;
+        document.getElementById("baggage-price").textContent = baggagePrice;
+
+        var totalPrice = legroomPrice + wifiPrice + mealPrice + beveragePrice + loungePrice + boardingPrice + baggagePrice;
+        document.getElementById("total-price").textContent = totalPrice;
+
+        document.getElementById("flight-number").textContent = "A@I07894";
+
+        var gateNumber = "10";
+        document.getElementById("gate").textContent = gateNumber;
+        document.getElementById("gate-surprise").textContent = gateNumber;
+      } else {
+        alert("Form data is not available. Please fill out the form.");
+        window.location.href = "flightsearch.html";
+      }
+    }
+
+    populateTicket();
+  </script>
+</body>
+</html>

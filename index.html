@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Airline Website</title>
+  
+</head>
+<body>
+  <header>
+    <img src="img/logo.jpg" alt="Airline Logo" class="logo">
+    <div class="search-bar">
+      <label for="search-input">Flight Reservation:</label>
+      <input type="text" id="search-input" placeholder="Enter flight details...">
+      <button type="submit">Search</button>
+    </div>
+    <nav class="nav-menu">
+      <a href="flightstatus.html">Flights Status</a>
+      <a href="managebooking.html">Manage Booking</a>
+      <a href="login.html">Login</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="contactus.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <body>
+    <div class="hero">
+      <h1>Discover the world with us</h1>
+      <p>"Flying is not just about getting from A to B. It's about the journey itself and the experiences you have along the way." - Richard Branson</p>
+    </div>
+  </body>
+
+  <body>
+    <div class="form-container">
+      <h2>Flight Search</h2>
+      <form action="flightsearch.html" method="get">
+        <label for="from">From:</label>
+        <select id="from" name="from" required>
+          <option value="">Select origin</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Agra">Agra</option>
+          <option value="Cheenai">Cheenai</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Kota">Kota</option>
+          <option value="Amritsar">Amritsar</option>
+          <option value="Lucknow">Lucknow</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+        </select>
+    
+        <label for="to">To:</label>
+        <select id="to" name="to" required>
+          <option value="">Select destination</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Agra">Agra</option>
+          <option value="Cheenai">Cheenai</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Kota">Kota</option>
+          <option value="Amritsar">Amritsar</option>
+          <option value="Lucknow">Lucknow</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+        </select>
+    
+        <label for="departure">Departure Date:</label>
+        <input type="date" id="departure" name="departure" required>
+    
+        <label for="return">Return Date:</label>
+        <input type="date" id="return" name="return">
+    
+        <label for="passengers">Passengers:</label>
+        <select id="passengers" name="passengers" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+    
+        <input type="submit" name="submit" value="Search Flights">
+      </form>
+    </div>
+    
+
+    <footer>
+
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-links">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="flight.html">Flights</a></li>
+              <li><a href="hotel.html">Hotels</a></li>
+              <li><a href="#">Car Rentals</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="#">Terms and Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><a href="#">Customer Service</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h3>Connect with Us</h3>
+            <ul class="social-media">
+              <li><a href=""><i class="fab fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Expedia, Inc. All rights reserved.</p>
+        </div>
+      </div>
+
+    </footer>
+
+  </body>
+
+</body>
+
+</html>
